@@ -1,0 +1,6 @@
+{
+    "/api": {
+    "target": "https://team-game.pommine-fillatre.com/",
+    "secure": false
+    }
+    }
