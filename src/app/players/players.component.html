@@ -1,5 +1,15 @@
 <h2>Liste des joueurs</h2>
 
-<div>
-     
+<div class="players">
+  <div *ngFor="let player of players">
+    <h3>{{player.name}}</h3>
+    <p>Force: {{player.strength}}</p>
+    <p>Mémoire: {{player.memory}}</p>
+    <p>Intelligence: {{player.intelligence}}</p>
+    <p>Logique: {{player.logic}}</p>
+    <p>Résistance: {{player.resistance}}</p>
+    <p>Combativitée: {{player.memory}}</p>
+    <a routerLink="/details/{{player.id}}">Modifier {{player.name}}</a>
+  </div>
+
 </div>

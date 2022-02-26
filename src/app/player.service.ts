@@ -12,15 +12,15 @@ import { MessageService } from './message.service';
 })
 export class PlayerService {
 
-  private apiUrl = 'https://team-game.pommine-fillatre.com';  // URL to web api
+  private apiUrl = 'https://team-game.pommine-fillatre.com';  // Change here the URL of web api
 
   httpOptions = {
-    headers: new HttpHeaders({ 'Content-Type': 'application/json', 'Access-Control-Allow-Origin':'*', 'mode':'no-cors'})
+    headers: new HttpHeaders({ 'Content-Type': 'application/json'})
   };
 
   constructor(private http: HttpClient, private messageService: MessageService) { }
 
-  /** GET players from the server */
+  /** players list from the api */
   getPlayers(): Observable<Player[]> {
     const url = `${this.apiUrl}/list/all/players`;
     return this.http.get<Player[]>(url)
@@ -30,7 +30,7 @@ export class PlayerService {
       );
   }
 
-  /** GET player by id. Will 404 if id not found */
+  /** player by id */
   getPlayer(id: number): Observable<Player> {
     const url = `${this.apiUrl}/get/player/${id}`;
     return this.http.get<Player>(url)
@@ -40,16 +40,18 @@ export class PlayerService {
       );
   }
 
-  /** PUT: update the player on the server */
-  updatePlayer(player: Player): Observable<any> {
-    const url = `${this.apiUrl}/modify/player/${FormData}`;
-    return this.http.put(url, player, this.httpOptions).pipe(
-      tap(_ => this.log(`updated player id=${player.id}`)),
-      catchError(this.handleError<any>('updatePlayer'))
-    );
+   /** update the player */
+   updatePlayer(player: Player): Observable<any> {
+    const jsonData = JSON.stringify(player);
+    const url = `${this.apiUrl}/modify/${jsonData}/`;
+    return this.http.get<Player>(url)
+      .pipe(
+        tap((newPlayer: Player) => this.log(`updated player id=${player.id}`)),
+        catchError(this.handleError<any>('updatePlayer'))
+      );
   }
 
-  /** GET: start game */
+  /** start game */
   startGame(): Observable<any> {
     const url = `${this.apiUrl}/game/create`;
     return this.http.put(url, this.httpOptions).pipe(
@@ -58,7 +60,7 @@ export class PlayerService {
     );
   }
 
-  /** GET: game result */
+  /** game result */
   gameResult(): Observable<any> {
     const url = `${this.apiUrl}/game/result/${FormData}`;
     return this.http.put(url, this.httpOptions).pipe(
@@ -87,7 +89,6 @@ export class PlayerService {
       return of(result as T);
     };
   }
-
 
   /** Log a PlayerService message with the MessageService */
   private log(message: string) {

@@ -1,1 +1,38 @@
-<p>player-details works!</p>
+<div *ngIf="player">
+  <h2>{{player.name | uppercase}}</h2>
+  <h3>Détails</h3>
+  <div><span>id: </span>{{player.id}}</div>
+  <form>
+    <div class="form-control">
+      <label for="player-name">Nom du joueur: </label>
+      <input id="player-name" [(ngModel)]="player.name" name="name" value="{{player.name}}" type="text"/>
+
+    </div>
+    <div class="form-control">
+      <label for="player-strength">Force: </label>
+      <input id="player-strength" [(ngModel)]="player.strength" name="strength" value="{{player.strength}}" type="number" min="0" max="100"/>
+    </div>
+    <div class="form-control">
+      <label for="player-memory">Mémoire: </label>
+      <input id="player-memory" [(ngModel)]="player.memory" name="memory" value="{{player.memory}}" type="number" min="0" max="100"/>
+    </div>
+    <div class="form-control">
+      <label for="player-intelligence">Intelligence: </label>
+      <input id="player-intelligence" [(ngModel)]="player.intelligence" name="intelligence" value="{{player.intelligence}}" type="number" min="0" max="100"/>
+    </div>
+    <div class="form-control">
+      <label for="player-logic">Logique: </label>
+      <input id="player-logic" [(ngModel)]="player.logic" name="logic" value="{{player.logic}}" type="number" min="0" max="100"/>
+    </div>
+    <div class="form-control">
+      <label for="player-resistance">Résistance: </label>
+      <input id="player-resistance" [(ngModel)]="player.resistance" name="resistance" value="{{player.resistance}}" type="number" min="0" max="100"/>
+    </div>
+    <div class="form-control">
+      <label for="player-fighting">Combativitée: </label>
+      <input id="player-fighting" [(ngModel)]="player.fighting" name="fighting" value="{{player.fighting}}" type="number" min="0" max="100"/>
+    </div>
+    <button type="button" (click)="save()">Modifier</button>
+  </form>
+  <button type="button" (click)="goBack()">Retour</button>
+</div>
