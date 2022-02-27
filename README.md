@@ -25,3 +25,15 @@ Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To u
 ## Further help
 
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+
+## start with docker 
+
+Run `docker build -t dockerhub_name/image_name:tag dockerfile_location`
+
+## create players
+
+If the player list is completely empty, open the "player list" page and 10 new players will be created automatically. Or, you can add them one by one by clicking on "add a player"
+
+## start game
+
+Click on the "start game" button and choose a test
