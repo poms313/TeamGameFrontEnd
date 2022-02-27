@@ -52,12 +52,12 @@ export class PlayerService {
   }
 
   /** add a new hero to the server */
-  addPlayer(player: Player): Observable<Player> {
+  addPlayer(player:any) {
     const jsonData = JSON.stringify(player);
     const url = `${this.apiUrl}/add/player/${jsonData}/`;
     return this.http.get<Player>(url)
       .pipe(
-        tap((newPlayer: Player) => this.log(`added player w/ id=${newPlayer.id}`)),
+        tap((newPlayer: Player) => this.log(`added newplayer w/ name=${newPlayer.name}`)),
         catchError(this.handleError<Player>('addPlayer'))
       );
   }

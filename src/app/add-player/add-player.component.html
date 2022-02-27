@@ -1,1 +1,34 @@
-<p>add-player works!</p>
+<form #myform="ngForm" (ngSubmit)="onSubmit(myform)" >
+    <div class="form-group m-2">
+        <label for="player-name">Nom du joueur: </label>
+        <input id="player-name" class="text-center form-control" name="name" type="text" ngModel required/>
+      </div>
+      <div class="form-group m-2">
+        <label for="player-strength">Force: </label>
+        <input id="player-strength" class="text-center form-control" name="strength" type="number" min="0" max="100" ngModel required/>
+      </div>
+      <div class="form-group m-2">
+        <label for="player-memory">Mémoire: </label>
+        <input id="player-memory" class="text-center form-control" name="memory" type="number" min="0" max="100" ngModel required/>
+      </div>
+      <div class="form-group m-2">
+        <label for="player-intelligence">Intelligence: </label>
+        <input id="player-intelligence" class="text-center form-control" name="intelligence" type="number" min="0" max="100" ngModel required/>
+      </div>
+      <div class="form-group m-2">
+        <label for="player-logic">Logique: </label>
+        <input id="player-logic" class="text-center form-control"  name="logic" type="number" min="0" max="100" ngModel required/>
+      </div>
+      <div class="form-group m-2">
+        <label for="player-resistance">Résistance: </label>
+        <input id="player-resistance" class="text-center form-control" name="resistance" type="number" min="0" max="100" ngModel required/>
+      </div>
+      <div class="form-group m-2">
+        <label for="player-fighting">Combativitée: </label>
+        <input id="player-fighting" class="text-center form-control" name="fighting" type="number" min="0" max="100" ngModel required/>
+      </div>
+    <input class="custom-btn btn-block" type="submit" value="Créer">
+  </form>
+
+  <hr>
+  <button class="custom-btn" type="button" (click)="goBack()">Retour</button>
