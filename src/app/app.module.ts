@@ -9,6 +9,8 @@ import { HttpClientModule } from '@angular/common/http';
 import { HomeComponent } from './home/home.component';
 import { FormsModule } from '@angular/forms';
 import { MessagesComponent } from './messages/messages.component';
+import { StartGameComponent } from './start-game/start-game.component';
+import { GameResultComponent } from './game-result/game-result.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +18,9 @@ import { MessagesComponent } from './messages/messages.component';
     PlayersComponent,
     PlayerDetailsComponent,
     HomeComponent,
-    MessagesComponent
+    MessagesComponent,
+    StartGameComponent,
+    GameResultComponent
   ],
   imports: [
     BrowserModule,

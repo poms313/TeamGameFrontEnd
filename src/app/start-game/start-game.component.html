@@ -1,0 +1,26 @@
+<h2>Démarer une partie</h2>
+
+<div>
+    
+  <div *ngFor="let player of players">
+    <h3>{{player.name}}</h3>
+    <p>Force: {{player.strength}}</p>
+    <p>Mémoire: {{player.memory}}</p>
+    <p>Intelligence: {{player.intelligence}}</p>
+    <p>Logique: {{player.logic}}</p>
+    <p>Résistance: {{player.resistance}}</p>
+    <p>Combativitée: {{player.memory}}</p>
+    <p>Equipe: {{player.team}}</p>
+  </div>
+  
+  <h2>Choix de l'épreuve</h2>
+  <p>Cliquez sur une épreuve pour commencer</p>
+  <button id="strength" (click)="setTest($event)">Force</button>
+  <button id="memory" (click)="setTest($event)">Mémoire</button>
+  <button id="intelligence" (click)="setTest($event)">Intelligence</button>
+  <button id="logic" (click)="setTest($event)">Logique</button>
+  <button id="resistance" (click)="setTest($event)">Resistance</button>
+  <button id="fighting" (click)="setTest($event)">Combat</button>
+
+<a routerLink="">Retour</a>
+</div>

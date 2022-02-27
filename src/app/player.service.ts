@@ -54,16 +54,22 @@ export class PlayerService {
   /** start game */
   startGame(): Observable<any> {
     const url = `${this.apiUrl}/game/create`;
-    return this.http.put(url, this.httpOptions).pipe(
+    return this.http.get(url, this.httpOptions).pipe(
       tap(_ => this.log(`start game`)),
       catchError(this.handleError<any>('startGame'))
     );
   }
 
   /** game result */
-  gameResult(): Observable<any> {
-    const url = `${this.apiUrl}/game/result/${FormData}`;
-    return this.http.put(url, this.httpOptions).pipe(
+  gameResult(testData:string) {
+
+  /*  const data = testName;
+    data += players;
+    const jsonData = JSON.stringify(players);*/
+    console.log(testData);
+
+    const url = `${this.apiUrl}/game/result/${testData}`;
+    return this.http.get(url, this.httpOptions).pipe(
       tap(_ => this.log(`game result`)),
       catchError(this.handleError<any>('gameResult'))
     );

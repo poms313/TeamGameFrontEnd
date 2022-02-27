@@ -7,5 +7,6 @@ export interface Player {
     logic: number;
     resistance: number;
     fighting: number;
+    team: string;
   }
   
