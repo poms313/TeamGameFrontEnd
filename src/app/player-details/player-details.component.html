@@ -41,8 +41,9 @@
       <input id="player-fighting" class="text-center form-control" [(ngModel)]="player.fighting" name="fighting"
         value="{{player.fighting}}" type="number" min="0" max="100" />
     </div>
-    <button class="custom-btn" type="button" (click)="save()">Modifier</button>
+    <button class="custom-btn btn-block" type="button" (click)="save()">Modifier</button>
   </form>
   <hr>
+  <a routerLink="/delete/player/{{player.id}}">Suprimer le joueur</a>
   <button class="custom-btn" type="button" (click)="goBack()">Retour</button>
 </div>

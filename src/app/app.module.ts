@@ -11,6 +11,8 @@ import { FormsModule } from '@angular/forms';
 import { MessagesComponent } from './messages/messages.component';
 import { StartGameComponent } from './start-game/start-game.component';
 import { GameResultComponent } from './game-result/game-result.component';
+import { AddPlayerComponent } from './add-player/add-player.component';
+import { DeletePlayerComponent } from './delete-player/delete-player.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +22,9 @@ import { GameResultComponent } from './game-result/game-result.component';
     HomeComponent,
     MessagesComponent,
     StartGameComponent,
-    GameResultComponent
+    GameResultComponent,
+    AddPlayerComponent,
+    DeletePlayerComponent
   ],
   imports: [
     BrowserModule,

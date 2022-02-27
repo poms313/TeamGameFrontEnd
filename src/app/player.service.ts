@@ -43,11 +43,32 @@ export class PlayerService {
   /** update the player */
   updatePlayer(player: Player): Observable<any> {
     const jsonData = JSON.stringify(player);
-    const url = `${this.apiUrl}/modify/${jsonData}/`;
+    const url = `${this.apiUrl}/modify/player/${jsonData}/`;
     return this.http.get<Player>(url)
       .pipe(
         tap((newPlayer: Player) => this.log(`updated player id=${player.id}`)),
         catchError(this.handleError<any>('updatePlayer'))
+      );
+  }
+
+  /** add a new hero to the server */
+  addPlayer(player: Player): Observable<Player> {
+    const jsonData = JSON.stringify(player);
+    const url = `${this.apiUrl}/add/player/${jsonData}/`;
+    return this.http.get<Player>(url)
+      .pipe(
+        tap((newPlayer: Player) => this.log(`added player w/ id=${newPlayer.id}`)),
+        catchError(this.handleError<Player>('addPlayer'))
+      );
+  }
+
+  /** delete the hero from the server */
+  deletePlayer(id: number): Observable<Player> {
+    const url = `${this.apiUrl}/delete/player/${id}`;
+    return this.http.get<Player>(url, this.httpOptions)
+      .pipe(
+        tap(_ => this.log(`deleted hero id=${id}`)),
+        catchError(this.handleError<Player>('deleteHero'))
       );
   }
 
