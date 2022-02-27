@@ -11,32 +11,31 @@ import { PlayerService } from '../player.service';
 })
 export class GameResultComponent implements OnInit {
 
-  result = [];
+  result:any = [];
+  winner:string = '';
+  teamOneScore:string = '';
+  teamTwoScore:string = '';
 
   constructor(
     private playerService: PlayerService,
     private route: ActivatedRoute
-    ) { }
+  ) { }
 
   ngOnInit(): void {
     this.getResult();
- /*   this.xxx = this.route.snapshot.paramMap.get[1];
-    console.log(this.xxx);
-  this.route.paramMap.subscribe((params: ParamMap) => {
-      this.id = +params.get('id');
-    });
-*/
   }
 
   getResult() {
-    const xxx = this.route.snapshot.paramMap.get('test');
-  const ggg =  JSON.stringify(xxx) 
-    this.playerService.gameResult(ggg)
-      .subscribe(result => this.result = result);
-//  this.playerService.gameResult(this.route.snapshot.paramMap);
-//pb de type any[] or string
- //   const id = this.route.snapshot.paramMap.get('test');
-    console.log(xxx)
+    const getGameValue = this.route.snapshot.paramMap.get('test');
+    const data = String(getGameValue)
+    this.playerService.gameResult(data)
+      .subscribe(result => this.result = this.extractResult(result));
+  }
+
+  extractResult(data:any) {
+    this.winner= data['winner'];
+    this.teamOneScore= data['teamOneScore'];
+    this.teamTwoScore= data['teamTwoScore'];
   }
 
 }

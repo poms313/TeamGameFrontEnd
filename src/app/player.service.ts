@@ -15,7 +15,7 @@ export class PlayerService {
   private apiUrl = 'https://team-game.pommine-fillatre.com';  // Change here the URL of web api
 
   httpOptions = {
-    headers: new HttpHeaders({ 'Content-Type': 'application/json'})
+    headers: new HttpHeaders({ 'Content-Type': 'application/json' })
   };
 
   constructor(private http: HttpClient, private messageService: MessageService) { }
@@ -40,8 +40,8 @@ export class PlayerService {
       );
   }
 
-   /** update the player */
-   updatePlayer(player: Player): Observable<any> {
+  /** update the player */
+  updatePlayer(player: Player): Observable<any> {
     const jsonData = JSON.stringify(player);
     const url = `${this.apiUrl}/modify/${jsonData}/`;
     return this.http.get<Player>(url)
@@ -61,14 +61,8 @@ export class PlayerService {
   }
 
   /** game result */
-  gameResult(testData:string) {
-
-  /*  const data = testName;
-    data += players;
-    const jsonData = JSON.stringify(players);*/
-    console.log(testData);
-
-    const url = `${this.apiUrl}/game/result/${testData}`;
+  gameResult(testData: string) {
+    const url = `${this.apiUrl}/result/${testData}`;
     return this.http.get(url, this.httpOptions).pipe(
       tap(_ => this.log(`game result`)),
       catchError(this.handleError<any>('gameResult'))
