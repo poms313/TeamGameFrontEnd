@@ -1,27 +1,49 @@
-<h2>Démarer une partie</h2>
+<div class="m-4 animate-text-color">
+  <h1>Démarer une partie</h1>
+</div>
+<div>
+  <h2 class=m-4>Choix de l'épreuve</h2>
+  <p>Cliquez sur une épreuve pour commencer la partie</p>
+  <div class="container">
+    <div class="row">
+      <div class="col m-2 p-2">
+        <button class="custom-btn" id="strength" (click)="setTest($event)">Force</button>
+        <button class="custom-btn" id="memory" (click)="setTest($event)">Mémoire</button>
+        <button class="custom-btn" id="intelligence" (click)="setTest($event)">Intelligence</button>
+      </div>
+      <div class="col m-2 p-2">
+        <button class="custom-btn" id="logic" (click)="setTest($event)">Logique</button>
+        <button class="custom-btn" id="resistance" (click)="setTest($event)">Resistance</button>
+        <button class="custom-btn" id="fighting" (click)="setTest($event)">Combat</button>
+      </div>
+    </div>
+  </div>
+</div>
 
 <div>
-  <h2>Choix de l'épreuve</h2>
-  <p>Cliquez sur une épreuve pour commencer</p>
-  <button id="strength" (click)="setTest($event)">Force</button>
-  <button id="memory" (click)="setTest($event)">Mémoire</button>
-  <button id="intelligence" (click)="setTest($event)">Intelligence</button>
-  <button id="logic" (click)="setTest($event)">Logique</button>
-  <button id="resistance" (click)="setTest($event)">Resistance</button>
-  <button id="fighting" (click)="setTest($event)">Combat</button>
-    
-  <div *ngFor="let player of players">
+  <h2>Liste des joueurs</h2>
+  <p>Chaque membre de l'équipe est choisi aléatoirement.</p>
+  <p>"Team One" sont les rouges </p>
+  <p>"Team Two" sont les bleus </p>
+  <div *ngFor="let player of players" class="rounded text-white m-2 p-2" [ngClass]="player.team=='1' ? 'teamOne' : 'teamTwo'">
     <h3>{{player.name}}</h3>
-    <p>Force: {{player.strength}}</p>
-    <p>Mémoire: {{player.memory}}</p>
-    <p>Intelligence: {{player.intelligence}}</p>
-    <p>Logique: {{player.logic}}</p>
-    <p>Résistance: {{player.resistance}}</p>
-    <p>Combativitée: {{player.memory}}</p>
-    <p>Equipe: {{player.team}}</p>
+    <h4>Equipe: {{player.team}}</h4>
+    <div class="container">
+      <div class="row">
+        <div class="col m-2 p-2">
+          <p>Force: <br>{{player.strength}}</p>
+          <p>Mémoire: <br>{{player.memory}}</p>
+          <p>Intelligence: <br>{{player.intelligence}}</p>
+        </div>
+        <div class="col m-2 p-2">
+          <p>Logique: <br>{{player.logic}}</p>
+          <p>Résistance: <br>{{player.resistance}}</p>
+          <p>Combat: <br>{{player.memory}}</p>
+        </div>
+      </div>
+    </div>
   </div>
-  
-  
-
-<a routerLink="">Retour</a>
 </div>
+
+
+<a class="custom-btn" routerLink="">Retour</a>

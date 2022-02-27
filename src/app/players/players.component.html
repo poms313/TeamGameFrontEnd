@@ -1,16 +1,28 @@
-<h2>Liste des joueurs</h2>
+<div class="m-4 animate-text-color">
+  <h1>Liste des joueurs</h1>
+</div>
 
 <div class="players">
   <div *ngFor="let player of players">
     <h3>{{player.name}}</h3>
-    <p>Force: {{player.strength}}</p>
-    <p>Mémoire: {{player.memory}}</p>
-    <p>Intelligence: {{player.intelligence}}</p>
-    <p>Logique: {{player.logic}}</p>
-    <p>Résistance: {{player.resistance}}</p>
-    <p>Combativitée: {{player.memory}}</p>
-    <a routerLink="/details/{{player.id}}">Modifier {{player.name}}</a>
+    <div class="container">
+      <div class="row">
+        <div class="col m-2 p-2">
+          <p>Force: <br>{{player.strength}}</p>
+          <p>Mémoire: <br>{{player.memory}}</p>
+          <p>Intelligence: <br>{{player.intelligence}}</p>
+        </div>
+        <div class="col m-2 p-2">
+          <p>Logique: <br>{{player.logic}}</p>
+          <p>Résistance: <br>{{player.resistance}}</p>
+          <p>Combat: <br>{{player.memory}}</p>
+        </div>
+      </div>
+    </div>
+    
+    <a class="custom-btn" routerLink="/details/{{player.id}}">Modifier {{player.name}}</a>
+    <hr>
   </div>
 </div>
-
-<a routerLink="">Retour</a>
+<hr>
+<a class="custom-btn" routerLink="">Retour</a>

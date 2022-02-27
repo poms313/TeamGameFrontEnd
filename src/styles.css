@@ -1,1 +1,121 @@
-/* You can add global styles to this file, and also import other style files */
+:root {
+    --color-white: rgb(255, 255, 255);
+    --color-blue: rgb(55, 0, 255);
+    --color-red: rgb(255, 6, 6);
+    --color-yellow: rgb(255, 251, 0);
+    --color-black: rgb(0, 0, 0);
+}
+
+body {
+    font-family: 'Barlow', sans-serif;
+    background-color: var(--color-black);
+    text-align: center;
+}
+
+.center {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: auto;
+}
+
+.center>div {
+    display: block;
+}
+
+.custom-btn {
+    display: block;
+    min-width: 180px;
+    margin: 10px auto;
+    padding: 10px;
+    text-transform: uppercase;
+    text-decoration: none;
+    font-weight: 600;
+    background-color: var(--color-white);
+    border: 2px solid var(--color-red);
+    border-radius: 15px;
+    color: var(--color-black);
+    background-color: var(--color-white);
+    transition: all 150ms ease-in-out;
+}
+
+.custom-btn:hover {
+    box-shadow: 0 0 5px 0 var(--color-red) inset, 0 0 10px 4px var(--color-red);
+    color: var(--color-red);
+    font-weight: 600;
+}
+
+.full-page {
+    min-height: 100vh;
+}
+
+.anim-container {
+    padding: min(7vh);
+    margin: 30px;
+    position: relative;
+    background-color: var(--color-white);
+}
+
+.animate-text-color {
+    animation: animateTextColor 30s ease infinite;
+}
+
+.anim-shadow:after,
+.anim-shadow:before {
+    position: absolute;
+    content: "";
+    z-index: -1;
+    height: 100%;
+    width: 100%;
+    margin: 0 auto;
+    transform: scale(1);
+    filter: blur(1vw);
+    background-color: var(--color-black);
+    background-size: 200% 200%;
+    animation: animateBackground 30s ease infinite;
+}
+
+.anim-shadow:after {
+    top: 0;
+    left: 0;
+}
+
+.teamOne {
+    background-color: var(--color-red);
+    border: 2px solid rgb(160, 0, 0)
+}
+
+.teamTwo {
+    background-color: var(--color-blue);
+    border: 2px solid rgb(18, 1, 114)
+
+}
+
+.anim-shadow:before {
+    bottom: 0;
+    right: 0;
+}
+
+@keyframes animateBackground {
+    0% {
+        background-color: var(--color-red);
+    }
+    50% {
+        background-color: var(--color-yellow);
+    }
+    100% {
+        background-color: var(--color-red);
+    }
+}
+
+@keyframes animateTextColor {
+    0% {
+        color: var(--color-red);
+    }
+    50% {
+        color: var(--color-yellow);
+    }
+    100% {
+        color: var(--color-red);
+    }
+}
